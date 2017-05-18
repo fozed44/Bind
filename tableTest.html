@@ -1,0 +1,25 @@
+
+<html>
+    <head>
+        <Title>TableJS test</Title>
+        <script src="/bindTable.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <b-for>
+        <table micro-table-enabled="true" remote-address="">
+            <thead>
+                <tr>
+                    <td>FirstName</td>
+                    <td>LastName</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat="here">
+                    <td>{{FirstName}}</td>
+                    <td>{{LastName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </b-for>
+    </body>
+</html>

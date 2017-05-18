@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+       <script src="/source/bindSerializer.js" type="text/javascript"></script>
+       <script src="/source/bindAJAX.js"       type="text/javascript"></script>
+       <script src="/source/bindEvent.js"      type="text/javascript"></script>
+       <script src="/source/bindHistory.js"    type="text/javascript"></script>
+       <script src="/source/bindQuery.js"      type="text/javascript"></script>
+       <script src="/source/bindAnimate.js"   type="text/javascript"></script>
+       <script src="/source/bindPanel.js"      type="text/javascript"></script>
+       <link  href="/source/bindPanel.css"     rel="stylesheet" type="text/css"/>
+   </head>
+   <body>
+       <div>
+            <label>Random number: </label>
+            <label id="random"></label>
+        </div>
+        <div>
+            <input id="btnGenNum" value="Generate New" type=button />
+            <input id="btnPush" value="push" type=button />
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div>
+           dummy text
+       </div>
+       <div class="micro-panel" data-heading="Test Heading" data-items="item1|value1|item2|value2|item3|very long value3">
+           Local Panel 1
+       </div>
+       <div class="micro-panel" data-heading="local panel" data-items="local panel|local panel value">
+           Local Panel 2
+       </div>
+       <div class="micro-panel" data-remote-address="/paneltest" data-remote-key="panel1" data-test="blah">
+            Remote Panel 1
+       </div>
+       <div class="micro-panel" data-remote-address="/paneltest" data-remote-key="panel2" data-horizontal-offset="100px">
+            Remote Panel 2
+       </div>
+        <div>extended text</div>
+       <script>
+           window.onload = function(){
+               document.querySelector("#btnGenNum").addEventListener('click', function(){
+                   document.querySelector('#random').innerHTML = Math.random();
+               });
+               document.querySelector("#btnPush").addEventListener('click', function(){
+                   micro.History.push(document.querySelector('#random').innerHTML);
+               });
+               micro.History.onPopState(function(stateObject){
+                   document.querySelector('#random').innerHTML = stateObject;
+               });
+           }
+       </script>
+   </body> 
+</html>
